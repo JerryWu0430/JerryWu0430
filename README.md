@@ -1,4 +1,4 @@
-# 👋 Hi, I'm Jerry Wu
+# Hi, I'm Jerry Wu 👋 
 <div align="center">
  
 ![Profile Views](https://komarev.com/ghpvc/?username=JerryWu0430&color=blue&style=flat-square)
