@@ -11,6 +11,7 @@
 ## 🚀 About Me
 
 - 🎓 CS Student @ UCL
+- 💻 Software Engineer @ Goodnotes
 - 💡 Passionate about building software focused on user experience with integration of AI
 - 🌱 Currently diving deeper into AI and ML Integrations
 - 🧠 Enjoy solving real-world problems through elegant(not always) code
