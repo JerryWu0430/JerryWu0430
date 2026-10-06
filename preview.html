@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jerry Wu — profile preview</title>
+<style>
+  :root { color-scheme: dark; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: #080808; color: #e1e1e1; }
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  main { width: min(100% - 40px, 1080px); margin: 48px auto 96px; }
+  .art { position: relative; }
+  img { display: block; width: 100%; height: auto; outline: 1px solid rgb(255 255 255 / .1); }
+  .still { display: none; }
+  button { position: absolute; right: 16px; bottom: 48px; padding: 8px 12px; border: 1px solid #454545; color: #aaa; background: #080808; font: inherit; font-size: 12px; cursor: pointer; transition: color 150ms, transform 150ms; }
+  button:active { transform: scale(.96); }
+  a:focus-visible, button:focus-visible { outline: 2px solid #e1e1e1; outline-offset: 5px; }
+  h1, h2 { font-size: 14px; font-weight: 400; color: #919191; margin: 44px 0 18px; }
+  h1 { margin-top: 28px; }
+  p { font-size: 14px; line-height: 1.8; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li { display: grid; grid-template-columns: 170px 1fr; gap: 20px; padding: 17px 0; border-bottom: 1px solid #262626; font-size: 14px; line-height: 1.7; }
+  a { color: #e1e1e1; text-underline-offset: 4px; text-decoration-color: #666; transition: color 150ms; }
+  li span { color: #919191; }
+  footer { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 36px; font-size: 13px; }
+  @media (hover:hover) and (pointer:fine) { a:hover, button:hover { color: white; } }
+  @media (prefers-reduced-motion:reduce) { .moving { display:none; } .still { display:block; } button { display:none; } }
+  @media (max-width:600px) { main { width: calc(100% - 28px); margin-top: 20px; } li { grid-template-columns: 1fr; gap: 4px; } button { position: static; margin: 12px 0 0 auto; display: block; font-size: 11px; padding: 8px; } }
+  @media (prefers-reduced-motion:reduce) { button { display: none; } }
+</style>
+<main>
+  <div class="art">
+    <img class="moving" src="assets/terminal.gif" width="1280" height="600" alt="Jerry Wu. Founding Engineer at Movable Voice. A slowly rotating geometric sculpture drawn in ASCII. TypeScript, Python, JavaScript.">
+    <img class="still" src="assets/terminal.png" width="1280" height="600" alt="Jerry Wu. Founding Engineer at Movable Voice. Geometric ASCII sculpture. TypeScript, Python, JavaScript.">
+    <button type="button" aria-pressed="false">Pause motion</button>
+  </div>
+  <h1>$ cat about.txt</h1>
+  <p>I'm Jerry, a <strong>Founding Engineer at <a href="https://movablevoice.com">Movable Voice</a></strong>. I build developer tools and AI applications, mostly in TypeScript, Python, and JavaScript.</p>
+  <p>My public projects explore how developers work with AI: auditing Claude Code setups, recommending developer tools, and experimenting with interfaces like smart glasses. I also build at hackathons, with projects that have placed at Hack Nation, Perplexity London, and Mistral AI × Jump Trading.</p>
+  <h2>$ ls projects/</h2>
+  <ul>
+    <li><a href="https://github.com/JerryWu0430/claude-usage">claude-usage</a><span>Audit the Claude Code skills, commands, plugins and MCP servers you actually use.</span></li>
+    <li><a href="https://github.com/JerryWu0430/StackScout">StackScout</a><span>Developer-tool recommendations. 1st place in London, Hack Nation 4th.</span></li>
+    <li><a href="https://github.com/JerryWu0430/StarPlex">StarPlex</a><span>2nd place, Perplexity London Hackathon 2025.</span></li>
+    <li><a href="https://github.com/JerryWu0430/PolyBans">PolyBans</a><span>Polymarket arbitrage with Meta Ray-Bans. 1st place, Best Use of Data, Mistral AI × Jump Trading.</span></li>
+  </ul>
+  <footer><a href="https://github.com/JerryWu0430?tab=repositories">All repositories ↗</a><a href="assets/terminal.png">Still artwork ↗</a></footer>
+</main>
+<script>
+  const button = document.querySelector('button');
+  const artwork = document.querySelector('.moving');
+  button.addEventListener('click', () => {
+    const paused = button.getAttribute('aria-pressed') !== 'true';
+    artwork.src = paused ? 'assets/terminal.png' : 'assets/terminal.gif';
+    button.setAttribute('aria-pressed', String(paused));
+    button.textContent = paused ? 'Play motion' : 'Pause motion';
+  });
+</script>
+</html>
